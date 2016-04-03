@@ -187,11 +187,29 @@ function MyClick(){
 				if(r==1){
 					www = 31;
 					object = {
-					question : "Which U.S. President ordered the atomic bombings of Japan during WWII",
+					question : "Which U.S. President ordered the atomic bombings of Japan during WWII?",
 					A : "Harry Truman",
 					B : "John F. Kennedy",
 					C : "Franklin Delano Roosevelt",
 					D : "Dwight D. Eisenhower"
+					}
+				}else if(r==2){
+					www = 32;
+					object = {
+					question: "Which two rivers comprise the Fertile Crescent?",
+					A : "Congo and Nile",
+					B : "Mississippi and Hudson",
+					C : "Ganges and Yellow",
+					D : "Tigris and Euphrates"
+					}
+				}else if(r==3){
+					www = 33;
+					object = {
+					question: "Who was the last Chinese Emperor?",
+					A : "Shihuangdi",
+					B : "Henry Puyi",
+					C : "Xuande",
+					D : "Quianlong"
 					}
 				}	
 			}
@@ -240,8 +258,12 @@ function correct(){
 			var bbb = document.getElementById('rB'); 
 			var ccc = document.getElementById('rC');
 			var ddd = document.getElementById('rD');
+	if(www==32&& ddd.checked){
+		document.getElementById("EE").innerHTML = "YAY";
+		alert("You Won");
+	}
 	
-	if(www==11 && ccc.checked){
+	else if(www==11 && ccc.checked){
 		document.getElementById("EE").innerHTML = "YAY";
 		alert("You Won");
 	}
@@ -250,7 +272,10 @@ function correct(){
 		document.getElementById("EE").innerHTML = "YAY";
 		alert("You Won");
 	}
-
+	else if(www==32 && bbb.checked){
+		document.getElementById("EE").innerHTML = "YAY";
+		alert("You Won");
+	}
 	else if (www==13 && bbb.checked){
 				document.getElementById("EE").innerHTML = "YAY";
 				alert("You Won");
@@ -296,7 +321,7 @@ function correct(){
 		console.log(MyRandom());
 		console.log("is it broken? 3");
 	</script>
-<center><div id="picTop"><img src="ad_15814560.jpeg"></div>
+<center><div id="picTop"><img src="banner_agriculture.png"></div>
 </center>
 	<center>
 <div id="middle">
