@@ -2,18 +2,19 @@
 <html>
 <head>
 <SCRIPT language="JavaScript">
-function on_click(){
-	var category;
-	Int r = Math.floor((Math.random()*3)+1);
-	if(r==1){
-		category="Science";
+
+
+
+function MyClick(){
+	//Generate first question
+	var QA = {
+	var	Q = MyCategory(MyRandom).question,
+	var	A1 = MyCategory(MyRandom).A,
+	var	A2 = MyCategory(MyRandom).B,
+	var	A3 = MyCategory(MyRandom).C,
+	var	A4 = MyCategory(MyRandom).D,
 	}
-	else if(r==2){
-		category = "Art";
-	}
-	else{
-		category = "History";
-	}
+	return QA;
 }
 </SCRIPT>
 	<title>Trivia Smash</title>
@@ -52,7 +53,139 @@ function on_click(){
 
 </head>
 <body>
+<script type="text/javascript">
+	console.log("fdfdf")
+</script>
 	
+	
+	<script type="text/javascript">
+		console.log("is it broken? 1");
+		function MyRandom(){
+			var category;
+			var r = Math.floor((Math.random()*3)+1);
+			if(r==1){
+				category="Science";
+			}
+			else if(r==2){
+				category = "Art";
+			}
+			else if(r==3){
+				category = "History";
+			}
+			return category;
+		} 
+
+
+		function MyCategory(z){
+			var r = 1;//Math.floor((Math.random()*3)+1);
+			
+			object = {
+				question: "",
+				A:"",
+				B:"",
+				C:"",
+				D:""
+			}
+
+			if(z=="Science"){
+
+				if(r==1){
+					object={
+			  		question : "Which is the range of the pH scale?",
+			  		A : "-3 to 41",
+			  		B : "2 to 12",
+			  		C : "0 to 14",
+			  		D : "1 to 14"
+			  		}
+				}
+				else if(r==2){
+					object = {
+					question : "What two entities comprise all vectors?",
+					A : "Distance and Direction",
+					B : "Displacement and Direction",
+					C : "Magnitude and Direction",
+					D : "Energy and Velocity"
+					}
+				}
+				else if(r==3){
+					object = {
+						question : "Which organ is responisbile for filtration?",
+						A : "Liver",
+						B : "Kidney",
+						C : "Fallopian tubes",
+						D : "Lungs"
+					}
+
+				}
+			}
+
+			else if(z == "Art"){
+				if (r==1){
+				object = {
+					question : "In which year was the famous rapper Notorious B.I.G. shot and killed in a drive by shooting?",
+					A : "1997",
+					B : "1996",
+					C : "1995",
+					D : "1994"
+					}
+				}
+				else if (r==2){
+				object = {
+					question : "What legendary US festival hosted over 350,000 fans that took place in 1969?",
+					A : "Woodstock",
+					B : "Burlington",
+					C : "New York",
+					D : "Detriot"
+					}
+				}
+				else if(r==3){
+					object = {
+					question : "In 1991, Freddy Mercury announces he haas the AIDS virus and dies the next day, hew was the front man of what band?",
+					A : "Prince",
+					B : "Queen",
+					C : "Aerosmith",
+					D : "Three Days of Grace"
+					}
+				}
+			}
+
+			else if(z == "History"){
+				if(r==1){
+					object = {
+					question : "Which U.S. President ordered the atomic bombings of Japan during WWII",
+					A : "Harry Truman",
+					B : "John F. Kennedy",
+					C : "Franklin Delano Roosevelt",
+					D : "Dwight D. Eisenhower"
+					}
+				}	
+			}
+
+
+
+
+
+			return object;
+		}
+
+		function butt(){
+			document.getElementById("Quu").innerHTML = document.write(MyCategory(MyRandom()).question);
+		}
+
+		console.log(MyCategory("History"));
+		console.log(MyCategory("History").question);
+
+	</script>
+	
+	<script type="text/javascript"> 
+	
+	
+		console.log("is it broken? 2");
+		MyCategory("Science");
+		console.log(MyRandom());
+		document.write(MyRandom());
+		console.log("is it broken? 3");
+	</script>
 	<center>
 <div id="middle">
 </div>
@@ -61,9 +194,11 @@ function on_click(){
 	<center>
 	<h1 id="head">Trivia Smash</h1>
 	
-	<button id="Start" onClick="on_click();">Start</button>
-
+	<button id="Start" onclick= butt() >Start</button>
+	<div id="Quu"></div>
 	</center>
+	<form>
+	<input type="radio" name="radioButtonOne" value="A"><br></form>
 </div>
 </body>
 </html>
