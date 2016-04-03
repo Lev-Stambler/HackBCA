@@ -1,0 +1,14 @@
+body {
+	background: ed1c24;
+}
+#middle{
+	color: 00bce4;
+	width:1,152px;
+	height: 1080px;
+	position: fixed;
+
+	margin-left: 384px;
+	margin-right: 384px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
