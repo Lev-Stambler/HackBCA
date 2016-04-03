@@ -33,7 +33,7 @@ function MyClick(){
 #head{
 	font-size: 100px;
 	margin-left: 0px;
-	margin-top: 75px;
+	margin-top: 0px;
 	color: #00BCD4;
 	
 }
@@ -49,7 +49,13 @@ function MyClick(){
 	top: 50px;
 	width: 100%;
 }
-
+#picTop{
+	width: 800px;
+	heigh: 200px;
+	margin-top: 25px;
+	
+	
+}
 #start{
 	width: 250px;
 	height: 200px;
@@ -181,7 +187,7 @@ function MyClick(){
 				if(r==1){
 					www = 31;
 					object = {
-					question : "Which U.S. President ordered the atomic bombings of Japan during WWII?",
+					question : "Which U.S. President ordered the atomic bombings of Japan during WWII",
 					A : "Harry Truman",
 					B : "John F. Kennedy",
 					C : "Franklin Delano Roosevelt",
@@ -252,12 +258,8 @@ function correct(){
 			var bbb = document.getElementById('rB'); 
 			var ccc = document.getElementById('rC');
 			var ddd = document.getElementById('rD');
-	if(www==32&& ddd.checked){
-		document.getElementById("EE").innerHTML = "YAY";
-		alert("You Won");
-	}
 	
-	else if(www==11 && ccc.checked){
+	if(www==11 && ccc.checked){
 		document.getElementById("EE").innerHTML = "YAY";
 		alert("You Won");
 	}
@@ -266,10 +268,7 @@ function correct(){
 		document.getElementById("EE").innerHTML = "YAY";
 		alert("You Won");
 	}
-	else if(www==33 && bbb.checked){
-		document.getElementById("EE").innerHTML = "YAY";
-		alert("You Won");
-	}
+
 	else if (www==13 && bbb.checked){
 				document.getElementById("EE").innerHTML = "YAY";
 				alert("You Won");
@@ -315,7 +314,7 @@ function correct(){
 		console.log(MyRandom());
 		console.log("is it broken? 3");
 	</script>
-<center><div id="picTop"></div>
+<center>
 </center>
 	<center>
 <div id="middle">
@@ -323,9 +322,7 @@ function correct(){
 </center>
 
 	<div id="top">
-			<center>
-		
-
+	<center>
 	<h1 id="head">Trivia Smash</h1>
 	
 	<button id="Start" onclick= butt()>Smash for Question</button>
