@@ -1,37 +1,59 @@
 
 <html>
 <head>
+<SCRIPT language="JavaScript">
+function on_click(){
+	window.alert("HI");
+}
+</SCRIPT>
 	<title>Trivia Smash</title>
 	<style>
 		body {
 	background-color: #e74c3c;
 }
+
 #middle{
 	background-color: #3498db;
 	width: 800px;
 	height: 1080px;
-	z-index: 0;
-	
+	position: relative;	
 	border: 10px;
 }
 #head{
 	font-size: 100px;
 	margin-left: 0px;
 	margin-top: 0px;
+	
+}
+#top{
+	position: absolute;
+	top: 50px;
+	width: 100%;
+}
+#start{
+	width: 300px;
+	height: 150px;
+	font-size: 55px;
+	background: #e74c3c;
 
 }
-.on{
-		z-index: 1;
-}
 	</style>
+
+
 </head>
 <body>
-	<div class="on"><h1 id="head">Trivia Smash</h1>
-</div>
 	
 	<center>
 <div id="middle">
 </div>
+</center>
+	<div id="top">
+	<center>
+	<h1 id="head">Trivia Smash</h1>
+	
+	<button id="Start" onClick="on_click();">Start</button>
+
 	</center>
+</div>
 </body>
 </html>
