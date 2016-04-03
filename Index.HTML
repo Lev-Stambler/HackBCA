@@ -71,7 +71,7 @@ function MyClick(){
 	height 100px;
 	background: #003366;
 	color: white;
-	margin-top: 20px;
+	margin-top: 60px;
 }
 	</style>
 
@@ -116,10 +116,10 @@ function MyClick(){
 			}
 
 			if(z=="Science"){
-
+				//Science [3,4,1]
 				if(r==1){
 					www=11;
-					object={
+					object = {
 			  		question : "Which is the range of the pH scale?",
 			  		A : "-4 to 6",
 			  		B : "2 to 12",
@@ -258,7 +258,11 @@ function correct(){
 			var bbb = document.getElementById('rB'); 
 			var ccc = document.getElementById('rC');
 			var ddd = document.getElementById('rD');
-	
+
+	if(www==32 && ddd.checked){
+		document.getElementById("EE").innerHTML = "YAY";
+		alert("You Won");
+	}
 	if(www==11 && ccc.checked){
 		document.getElementById("EE").innerHTML = "YAY";
 		alert("You Won");
@@ -268,15 +272,23 @@ function correct(){
 		document.getElementById("EE").innerHTML = "YAY";
 		alert("You Won");
 	}
-
-	else if (www==13 && bbb.checked){
-				document.getElementById("EE").innerHTML = "YAY";
-				alert("You Won");
-	}
 	else if(www==21 && ccc.checked){
 				document.getElementById("EE").innerHTML = "YAY";
 				alert("You Won");
 	}	
+	else if (www==13 && bbb.checked){
+				document.getElementById("EE").innerHTML = "YAY";
+				alert("You Won");
+	}
+	if(www==31 && bbb.checked){
+		document.getElementById("EE").innerHTML = "YAY";
+		alert("You Won");
+	}
+	
+	else if(www==23 && bbb.checked){
+				document.getElementById("EE").innerHTML = "YAY";
+				alert("You Won");
+	}
 	else if(www=99 && aaa.checked){
 		document.getElementById("EE").innerHTML = "YAY";
 		alert("You Won");
@@ -285,10 +297,7 @@ function correct(){
 				document.getElementById("EE").innerHTML = "YAY";
 				alert("You Won");
 	}
-	else if(www==23 && aaa.checked){
-				document.getElementById("EE").innerHTML = "YAY";
-				alert("You Won");
-	}
+	
 	else if(www==31 && aaa.checked){
 				document.getElementById("EE").innerHTML = "YAY";
 				alert("You Won");
