@@ -3,7 +3,17 @@
 <head>
 <SCRIPT language="JavaScript">
 function on_click(){
-	window.alert("HI");
+	var category;
+	Int r = Math.floor((Math.random()*3)+1);
+	if(r==1){
+		category="Science";
+	}
+	else if(r==2){
+		category = "Art";
+	}
+	else{
+		category = "History";
+	}
 }
 </SCRIPT>
 	<title>Trivia Smash</title>
