@@ -20,11 +20,11 @@ function MyClick(){
 	<title>Trivia Smash</title>
 	<style>
 		body {
-	background-color: #e74c3c;
+	background-color: #2980b9;
 }
 
 #middle{
-	background-color: #3498db;
+	background-color: #bdc3c7;
 	width: 800px;
 	height: 1080px;
 	position: relative;	
@@ -34,12 +34,19 @@ function MyClick(){
 	font-size: 100px;
 	margin-left: 0px;
 	margin-top: 0px;
+	color: #ecf0f1;
 	
 }
+
 #top{
 	position: absolute;
 	top: 50px;
 	width: 100%;
+}
+#finish{
+	margin-top: 40px;
+	width:150px;
+	height: 65px;
 }
 #start{
 	width: 300px;
@@ -57,8 +64,10 @@ function MyClick(){
 	console.log("fdfdf")
 </script>
 	
-	
+	i = 0;
 	<script type="text/javascript">
+				ver = true;
+
 		console.log("is it broken? 1");
 		function MyRandom(){
 			var category;
@@ -77,8 +86,9 @@ function MyClick(){
 
 
 		function MyCategory(z){
-			var r = Math.floor((Math.random()*3)+1);
-			
+			if(i==1){
+			r = Math.floor((Math.random()*3)+1);
+			}
 			object = {
 				question: "",
 				A:"",
@@ -90,6 +100,7 @@ function MyClick(){
 			if(z=="Science"){
 
 				if(r==1){
+					www=11;
 					object={
 			  		question : "Which is the range of the pH scale?",
 			  		A : "-3 to 41",
@@ -99,6 +110,7 @@ function MyClick(){
 			  		}
 				}
 				else if(r==2){
+					www=12;
 					object = {
 					question : "What two entities comprise all vectors?",
 					A : "Distance and Direction",
@@ -108,6 +120,7 @@ function MyClick(){
 					}
 				}
 				else if(r==3){
+					www=13;
 					object = {
 						question : "Which organ is responisbile for filtration?",
 						A : "Liver",
@@ -121,6 +134,7 @@ function MyClick(){
 
 			else if(z == "Art"){
 				if (r==1){
+					www=21;
 				object = {
 					question : "In which year was the famous rapper Notorious B.I.G. shot and killed in a drive by shooting?",
 					A : "1997",
@@ -130,6 +144,7 @@ function MyClick(){
 					}
 				}
 				else if (r==2){
+					www=22;
 				object = {
 					question : "What legendary US festival hosted over 350,000 fans that took place in 1969?",
 					A : "Woodstock",
@@ -139,6 +154,7 @@ function MyClick(){
 					}
 				}
 				else if(r==3){
+					www=23;
 					object = {
 					question : "In 1991, Freddy Mercury announces he haas the AIDS virus and dies the next day, hew was the front man of what band?",
 					A : "Prince",
@@ -151,6 +167,7 @@ function MyClick(){
 
 			else if(z == "History"){
 				if(r==1){
+					www = 31;
 					object = {
 					question : "Which U.S. President ordered the atomic bombings of Japan during WWII",
 					A : "Harry Truman",
@@ -166,11 +183,74 @@ function MyClick(){
 
 
 			return object;
+					
+		}
+
+		function is_checked(){
+			
 		}
 
 		function butt(){
-			document.getElementById("Quu").innerHTML = document.write(MyCategory(MyRandom()).question);
+			ver = true;
+
+			var Intern = MyRandom();
+			var QQQ = [5];
+			i=1;
+			QQQ[0] = MyCategory(Intern).question;	
+			i=2;
+			QQQ[1] = MyCategory(Intern).A;
+			i=3
+			QQQ[2] = MyCategory(Intern).B;
+			i=4
+			QQQ[3] = MyCategory(Intern).C;
+			i=5
+			QQQ[4] = MyCategory(Intern).D;
+			i= 0;
+
+			document.getElementById("Quu").innerHTML = QQQ[0]+www;
+			document.getElementById("Quu").innerHTML += 
+	'<form method="get" onsubmit="return is_checked()"> <input type="radio" name="radioButtonOne" id="rA" value="A" >' + QQQ[1] + '<br>\
+	<input type="radio" name="radioButtonTwo" value="B" id="rB" >' + QQQ[2] + '<br>\
+	<input type="radio" name="radioButtonThree" value="C" id="rC">' + QQQ[3] + '<br>\
+	<input type="radio" name="radioButtonFour" value="D">' + QQQ[4] + '<br></form>';
+
 		}
+
+function correct(){
+	var aaa =  document.getElementById('rA').checked;
+	var bbb = document.getElementById('rB').checked; 
+	var ccc = document.getElementById('rC').checked;
+	var ddd = document.getElementById('rD').checked;
+	if(www==11 &&ccc ){
+		document.getElementById("EE").innerHTML = "YAY";
+	}
+	else if(www==12 && ccc){
+		document.getElementById("EE").innerHTML = "YAY";
+	}
+	
+	else if(www==13 && bbb){
+				document.getElementById("EE").innerHTML = "YAY";
+	}
+	else if(www==21 &&& ccc){
+				document.getElementById("EE").innerHTML = "YAY";
+	}	
+	else if(www==22 && aaa){
+				document.getElementById("EE").innerHTML = "YAY";
+	}
+	else if(www==23 && aaa){
+				document.getElementById("EE").innerHTML = "YAY";
+	}
+	else if(www==31 && ddd){
+				document.getElementById("EE").innerHTML = "YAY";
+	}
+	else{
+		if(www==11 && radioButtonThree.Checked = True){
+		document.getElementById("EE").innerHTML = "YAY";
+	}
+	
+	}
+}
+
 
 		console.log(MyCategory("History"));
 		console.log(MyCategory("History").question);
@@ -193,11 +273,12 @@ function MyClick(){
 	<center>
 	<h1 id="head">Trivia Smash</h1>
 	
-	<button id="Start" onclick= butt() >Start</button>
-	<div id="Quu"></div>
+	<button id="Start" onclick= butt()>Start</button>
+	<div id="Box"><p1 id="Quu"></p1></div>
+	<button id="Finish" onclick=correct()>Submit</button>
+	<div id="EE">jhj</div>
 	</center>
 	<form>
-	<input type="radio" name="radioButtonOne" value="A"><br></form>
 </div>
 </body>
 </html>
