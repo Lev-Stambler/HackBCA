@@ -111,6 +111,7 @@
 					myMap.set('Q2', "2 to 12");
 					myMap.set('Q3', "0 to 14");
 					myMap.set('Q4', "1 to 14");
+					myMap.set('Answer', myMap.get('Q3'));
 					//object = {
 			  		//question : "Which is the range of the pH scale?",
 			  		//A : "-4 to 6",
@@ -126,6 +127,7 @@
 					myMap.set('Q2', "Displacement and Magnitude");
 					myMap.set('Q3', "Magnitude and Direction");
 					myMap.set('Q4', "Energy and Velocity");
+					myMap.set('Answer', myMap.get('Q3'));
 					/*object = {
 					question : "What two entities comprise all vectors?",
 					A : "Distance and Direction",
@@ -142,6 +144,7 @@
 					myMap.set('Q2', "Kidney");
 					myMap.set('Q3', "Fallopian tubes");
 					myMap.set('Q4', "Lungs");
+					myMap.set('Answer', myMap.get('Q2'));
 						/*object = {
 						question : "Which organ is responisbile for filtration?",
 						A : "Liver",
@@ -162,6 +165,7 @@
 					myMap.set('Q2', "1996");
 					myMap.set('Q3', "1995");
 					myMap.set('Q4', "1994");
+					myMap.set('Answer', myMap.get('Q3'));
 				/*object = {
 					question : "In which year was the famous rapper Notorious B.I.G. shot and killed in a drive by shooting?",
 					A : "1997",
@@ -177,6 +181,7 @@
 					myMap.set('Q2', "Burlington");
 					myMap.set('Q3', "New York");
 					myMap.set('Q4', "Detriot");
+					myMap.set('Answer', myMap.get('Q1'));
 				/*
 				object = {
 					question : "What legendary US festival hosted over 350,000 fans that took place in 1969?",
@@ -193,6 +198,7 @@
 					myMap.set('Q2', "Queen");
 					myMap.set('Q3', "Aerosmith");
 					myMap.set('Q4', "Three Days of Grace");
+					myMap.set('Answer', myMap.get('Q2'));
 					/*object = {
 					question : "In 1991, Freddy Mercury announces he haas the AIDS virus and dies the next day, hew was the front man of what band?",
 					A : "Prince",
@@ -211,6 +217,7 @@
 					myMap.set('Q2', "John F. Kennedy");
 					myMap.set('Q3', "Franklin Delano Roosevelt");
 					myMap.set('Q4', "Dwight D. Eisenhower");
+					myMap.set('Answer', myMap.get('Q1'));
 					/*object = {
 					question : "Which U.S. President ordered the atomic bombings of Japan during WWII",
 					A : "Harry Truman",
@@ -224,7 +231,8 @@
 					myMap.set('Q1', "Congo and Nile");
 					myMap.set('Q2', "Mississippi and Hudson");
 					myMap.set('Q3', "Ganges and Yellow");
-					myMap.set('Q4', "Tigris and Euphrates");					
+					myMap.set('Q4', "Tigris and Euphrates");	
+					myMap.set('Answer', myMap.get('Q4'));				
 					/*object = {
 					question: "Which two rivers comprise the Fertile Crescent?",
 					A : "Congo and Nile",
@@ -239,6 +247,7 @@
 					myMap.set('Q2', "Henry Puyi");
 					myMap.set('Q3', "Xuande");
 					myMap.set('Q4', "Quianlong");
+					myMap.set('Answer', myMap.get('Q2'));
 					/*object = {
 					question: "Who was the last Chinese Emperor?",
 					A : "Shihuangdi",
@@ -286,11 +295,30 @@
 			document.getElementById("Quu").innerHTML = QQQ[0];
 */
 			document.getElementById("Quu").innerHTML += 
-	'<div id="dd"><form method="get" onsubmit="return is_checked()"> <input type="radio" name="radioButtonOne" id="rA" value="A" >' + myMap.get('Q1') + '<br> <input type="radio" name="radioButtonTwo" value="B" id="rB" >' + myMap.get('Q2') + '<br> <input type="radio" name="radioButtonThree" value="C" id="rC">' + myMap.get('Q3') + '<br>\
-	<input type="radio" name="radioButtonFour" value="D" id="rD">' + myMap.get('Q4') + '<br></form></div> '
+	'<div id="dd"><form method="get" onsubmit="return is_checked()"> <input type="radio" name="radioButtonOne" id="rA" value="A" onclick="radclearA()">' + myMap.get('Q1') + '<br> <input onclick="radclearB()" type="radio" name="radioButtonTwo" value="B" id="rB" onclick="rB()"">' + myMap.get('Q2') + '<br> <input type="radio" name="radioButtonThree" onclick="radclearC()" value="C" id="rC">' + myMap.get('Q3') + '<br> <input type="radio" onclick="radclearD()" name="radioButtonFour" value="D" id="rD">' + myMap.get('Q4') + '<br></form></div> '
 		}
-
-function correct(){
+			function radclearA(){
+		document.getElementById("rB").checked = false;
+		document.getElementById("rC").checked = false;
+		document.getElementById("rD").checked = false;
+			}
+			function radclearB(){
+		document.getElementById("rA").checked = false;
+		document.getElementById("rC").checked = false;
+		document.getElementById("rD").checked = false;
+			}
+			function radclearC(){
+		document.getElementById("rA").checked = false;
+		document.getElementById("rB").checked = false;
+		document.getElementById("rD").checked = false;
+			}
+			function radclearD(){
+		document.getElementById("rB").checked = false;
+		document.getElementById("rC").checked = false;
+		document.getElementById("rA").checked = false;
+			}
+			
+			function correct(){
 			var aaa =  document.getElementById('rA');
 			var bbb = document.getElementById('rB'); 
 			var ccc = document.getElementById('rC');
@@ -332,7 +360,7 @@ function correct(){
 		alert("You Won");
 	}
 	else{
-		document.getElementById("EE").innerHTML = "No, you lost."
+		document.getElementById("EE").innerHTML = "No, you lost. The correct answer is " + myMap.get('Answer');
 	}
 	document.getElementById("rA").checked = false;
 	document.getElementById("rB").checked = false;
