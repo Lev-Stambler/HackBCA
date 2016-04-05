@@ -24,23 +24,21 @@
 }
 #dd{
 	margin-top: 20px;
-	margin-bottom:15px;
+	margin-bottom:10px;
+	
+	src: url(https://fonts.googleapis.com/css?family=Oswald);
 	font-size: 25px;
-	@import url(https://fonts.googleapis.com/css?family=Oswald);
-	font-weight: 500px;
+	font-family: 'Oswald';
+	font-weight: 400;
+
+
 }
 #top{
 	position: absolute;
 	top: 50px;
 	width: 100%;
 }
-#picTop{
-	width: 800px;
-	heigh: 200px;
-	margin-top: 25px;
-	
-	
-}
+
 #start{
 	width: 250px;
 	height: 200px;
@@ -56,8 +54,13 @@
 	height 100px;
 	background: #003366;
 	color: white;
-	margin-top: 60px;
+	margin-top: 40px;
 }
+#Quest{
+	font-size: 30px;
+	width: 700px;
+}
+
 	</style>
 
 
@@ -74,7 +77,7 @@
 		i=1;
 		function MyRandom(){
 			var category;
-			var r = Math.floor((Math.random()*3)+1);
+			var r = Math.floor((Math.random()*4)+1);
 			if(r==1){
 				category="Science";
 			}
@@ -84,6 +87,8 @@
 			else if(r==3){
 				category = "History";
 			}
+			else if(r==4)
+				category = "Politics";
 			return category;
 		} 
 
@@ -92,13 +97,7 @@
 			//if(i==1){
 			r = Math.floor((Math.random()*3)+1);
 			//}
-			object = {
-				question: "MAKE AMERICA ____ AGAIN",
-				A:"GREAT",
-				B:"GOOD",
-				C:"CHINA",
-				D:"MEXICO"
-			}
+			
 
 			if(z=="Science"){
 			
@@ -139,7 +138,7 @@
 				}
 				else if(r==3){
 					myMap.set('QuestionNumber', "Science:3");					
-					myMap.set('RealQuestion', "Which organ is responisbile for filtration");
+					myMap.set('RealQuestion', "Which organ is responisbile for filtration?");
 					myMap.set('Q1', "Liver");
 					myMap.set('Q2', "Kidney");
 					myMap.set('Q3', "Fallopian tubes");
@@ -212,7 +211,7 @@
 			else if(z == "History"){
 				if(r==1){
 					myMap.set('QuestionNumber', "History:1");					
-					myMap.set('RealQuestion', "Which U.S. President ordered the atomic bombings of Japan during WWII");
+					myMap.set('RealQuestion', "Which U.S. President ordered the atomic bombings of Japan during WWII?");
 					myMap.set('Q1', "Harry Truman");
 					myMap.set('Q2', "John F. Kennedy");
 					myMap.set('Q3', "Franklin Delano Roosevelt");
@@ -257,12 +256,16 @@
 					}*/
 				}	
 			}
-
-
-
-
-			//return myMap;
-			//return object;
+			else if(z=="Politics"){
+				myMap.set('QuestionNumber', "Politics:1");					
+					myMap.set('RealQuestion', "MAKE AMERICA ____ AGAIN");
+					myMap.set('Q1', "GREAT");
+					myMap.set('Q2', "GOOD");
+					myMap.set('Q3', "CHINA");
+					myMap.set('Q4', "MEXICO");
+					myMap.set('Answer', myMap.get('Q1'));
+				}
+			
 					
 		}
 
@@ -273,7 +276,7 @@
 		document.getElementById("EE").innerHTML = "";
 		//var t = myMap.get('RealQuestion');
 		console.log(myMap.get('RealQuestion'));
-			document.getElementById("Quu").innerHTML = myMap.get('RealQuestion');
+			document.getElementById("Quu").innerHTML = '<div id="Quest">' + myMap.get('RealQuestion') + '</div>';
 
 			/*
 			document.getElementById("EE").innerHTML = "";
@@ -358,6 +361,9 @@
 	else if(myMap.get('QuestionNumber')=="Art:3" && bbb.checked){
 		document.getElementById("EE").innerHTML = "You are right";
 		//alert("You are right");
+	}
+	else if(myMap.get('QuestionNumber')=="Politics:1" && aaa.checked){
+		document.getElementById("EE").innerHTML = "You are right";
 	}
 	else{
 		document.getElementById("EE").innerHTML = "No, you lost. The correct answer is " + myMap.get('Answer');
